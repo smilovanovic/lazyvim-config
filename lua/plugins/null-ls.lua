@@ -5,8 +5,11 @@ return {
     return {
       default_timeout = 10000,
       sources = {
+        nls.builtins.formatting.yamlfmt,
+        -- nls.builtins.diagnostics.standardrb.with({
+        --   method = nls.methods.DIAGNOSTICS_ON_SAVE,
+        -- }),
         nls.builtins.formatting.standardrb,
-        nls.builtins.diagnostics.standardrb,
       },
     }
   end,

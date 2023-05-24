@@ -19,7 +19,7 @@ local function setup_ruby_adapter()
     if config.bundle == "bundle" then
       args = { "-n", "--open", "--port", config.port, "-c", "--", "bundle", "exec", config.command, script }
     else
-      args = { "--open", "--port", config.port, "-c", "--", config.command, script }
+      args = { "-n", "--open", "--port", config.port, "-c", "--", config.command, script }
     end
 
     local opts = {
@@ -141,7 +141,70 @@ local function setup_ruby_configuration()
   }
 end
 
-setup_ruby_adapter()
-setup_ruby_configuration()
+-- setup_ruby_adapter()
+-- setup_ruby_configuration()
 
+-- dap.adapters.go = {
+--   -- type = 'executable',
+--   -- command = 'node',
+--   -- args = { os.getenv('HOME') .. '/dev/vscode-go/dist/debugAdapter.js' },
+--   type = 'server',
+--   port = '${port}',
+--   executable = {
+--     command = 'dlv',
+--     args = { 'dap', '-l', '127.0.0.1:${port}' },
+--   }
+-- }
+-- dap.configurations.go = {
+--   {
+--     type = "delve",
+--     name = "Debug",
+--     request = "launch",
+--     program = "${file}"
+--   },
+--   {
+--     type = "delve",
+--     name = "Debug test", -- configuration for debugging test files
+--     request = "launch",
+--     mode = "test",
+--     program = "${file}"
+--   },
+--   -- works with go.mod packages and sub packages
+--   {
+--     type = "delve",
+--     name = "Debug test (go.mod)",
+--     request = "launch",
+--     mode = "test",
+--     program = "./${relativeFileDirname}"
+--   }
+-- }
+
+-- return {
+--   "leoluz/nvim-dap-go"
+-- }
+
+dap.adapters.ruby = function(callback, config)
+  callback {
+    type = "server",
+    host = "127.0.0.1",
+    port = "38700",
+    executable = {
+      command = "rdbg",
+      args = { "-n", "--open", "--port", "38700",
+        "-c", "--", "bundle", "exec", config.command, config.script,
+      },
+    },
+    options = {
+      max_retries = 30
+    }
+  }
+end
+dap.configurations.ruby = {
+  {
+    type = "ruby",
+    name = "rails",
+    request = "attach",
+    localfs = true,
+  },
+}
 return {}

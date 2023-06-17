@@ -204,7 +204,12 @@ dap.configurations.ruby = {
     type = "ruby",
     name = "rails",
     request = "attach",
+    command = "rails",
+    script = "server",
     localfs = true,
+    options = {
+      source_filetype = "ruby",
+    },
   },
 }
 return {}

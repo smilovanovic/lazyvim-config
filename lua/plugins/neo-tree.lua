@@ -6,11 +6,13 @@ return {
         hide_dotfiles = false,
         hide_gitignored = false,
       },
-      follow_current_file = false,
+      follow_current_file = {
+        enabled = false
+      },
 
     },
     window = {
-      auto_expand_width = true,
+      auto_expand_width = false,
     },
   },
   keys = {

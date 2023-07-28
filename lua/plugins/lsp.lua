@@ -5,6 +5,11 @@ return {
     format = {
       timeout_ms = 10000,
     },
+    servers = {
+      cucumber_language_server = {
+        mason = false
+      }
+    },
     setup = {
       solargraph = function(_, opts)
         -- opts.cmd = { "solargraph", "stdio" }

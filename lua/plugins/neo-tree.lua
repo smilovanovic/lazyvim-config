@@ -7,9 +7,8 @@ return {
         hide_gitignored = false,
       },
       follow_current_file = {
-        enabled = false
+        enabled = false,
       },
-
     },
     window = {
       auto_expand_width = false,
@@ -26,9 +25,9 @@ return {
     {
       "<leader>e",
       function()
-        require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
+        require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").root.get() })
       end,
       desc = "Explorer NeoTree (root dir)",
     },
-  }
+  },
 }

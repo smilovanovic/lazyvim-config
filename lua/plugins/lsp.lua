@@ -9,6 +9,9 @@ return {
       cucumber_language_server = {
         mason = false,
       },
+      solargraph = {
+        mason = false,
+      },
     },
     setup = {
       solargraph = function(_, opts)

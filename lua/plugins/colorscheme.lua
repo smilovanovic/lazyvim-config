@@ -4,8 +4,8 @@ return {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     opts = {
-      dim_inactive = true
-    }
+      dim_inactive = true,
+    },
   },
   {
     "catppuccin/nvim",
@@ -16,13 +16,14 @@ return {
         shade = "light",
         percentage = 0.75,
       },
-    }
+    },
   },
 
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
+      -- colorscheme = "catppuccin",
       colorscheme = "gruvbox",
     },
   },

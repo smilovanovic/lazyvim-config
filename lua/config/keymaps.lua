@@ -14,3 +14,11 @@ vim.keymap.set("n", "<leader>fp", ":let @+ = expand('%')<CR>", { silent = true, 
 vim.keymap.set("n", "<leader>rp", "i<Up><CR><Esc><Esc>", { silent = true, desc = "Run last terminal command" })
 vim.keymap.set("n", "gw", "*N", { desc = "Search word under cursor" })
 vim.keymap.set("n", "<leader>%", "ggyG<C-o>", { desc = "Yank the whole file" })
+vim.keymap.set("n", "<leader>p", "viwpyiw", { desc = "Paste in word" })
+
+-- window management
+vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window right" })
+vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split window below" })
+
+-- buffer management
+vim.keymap.set("n", "<leader>bw", "<leader>bd<leader>wd", { desc = "Delete buffer and close window" })

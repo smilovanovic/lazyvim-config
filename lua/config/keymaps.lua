@@ -21,3 +21,4 @@ vim.keymap.set("n", "<leader>wo", "<C-w>o", { desc = "Close other windows" })
 
 -- buffer management
 vim.keymap.set("n", "<leader>bw", ":bd<CR><C-w>q", { desc = "Delete buffer and close window" })
+vim.keymap.set("n", "<leader><CR>", ":b term<CR>", { desc = "Switch to terminal buffer" })

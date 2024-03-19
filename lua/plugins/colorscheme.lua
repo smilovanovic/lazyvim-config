@@ -1,17 +1,18 @@
 return {
-  -- add gruvbox
   {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     opts = {
+      contrast = "hard",
       dim_inactive = true,
+      overrides = {
+        NormalNC = { bg = "#26292a" },
+      },
     },
   },
-  -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "catppuccin",
       colorscheme = "gruvbox",
     },
   },
